@@ -49,6 +49,13 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'to_spreadsheet'
+
+gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
+gem 'zip-zip' # will load compatibility for old rubyzip API.
+gem 'axlsx', '2.1.0.pre'
+gem 'axlsx_rails', '>=0.4'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'cucumber-rails', require: false

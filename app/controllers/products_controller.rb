@@ -1,11 +1,20 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
+  respond_to :xlsx, :html, :json
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+  end
+  
+  def xls
+    @products = Product.all
+    respond_to do |format|
+      #format.html
+      format.xlsx { render xlsx: :xls, filename: "my_items_doc" }
+    end
   end
 
   # GET /products/1

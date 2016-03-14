@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/products/xls' => 'products#xls', as: :products_xls
+  
   devise_for :users
   resources :tags
   resources :products

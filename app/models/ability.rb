@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     else
       can :read, Product
+      can :xls, Product
     end
   end
 end

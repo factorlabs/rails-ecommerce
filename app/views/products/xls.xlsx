@@ -1,0 +1,10 @@
+<table>
+    <thead>
+        <tr><td>ID</td><td>Name</td></tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+            <tr><td><%= product.id %></td><td><%= product.name %></td></tr>
+        <% end %>
+    </tbody>
+</table>
