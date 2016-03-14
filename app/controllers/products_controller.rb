@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    puts "------------------"
+    current_user.id
+    puts "------------------"
     @products = Product.all
   end
 
