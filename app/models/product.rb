@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
     has_and_belongs_to_many :tags
     has_many :search_indices
+    belongs_to :category
     
     include Loggable
     include Indexable
