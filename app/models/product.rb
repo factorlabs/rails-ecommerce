@@ -1,5 +1,10 @@
 class Product < ActiveRecord::Base
     has_and_belongs_to_many :tags
+    has_many :search_indices
+    
+    include Loggable
+    include Indexable
+    
     def tag_list
       self.tags.map {|t| t.name }.join(", ")
     end
