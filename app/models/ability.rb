@@ -8,6 +8,7 @@ class Ability
     else
       can :read, Product
       can :xls, Product
+      can :manage, Product
     end
   end
 end
