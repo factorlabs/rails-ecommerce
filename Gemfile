@@ -30,6 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 gem "devise"
+gem 'cancan'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -37,6 +38,7 @@ gem "devise"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -46,3 +48,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
+end

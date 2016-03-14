@@ -4,10 +4,14 @@ class OrdersController < ApplicationController
   # GET /orders/test
   def order
     @order = OrderProxy.new(session)
-    @sess = session[:order_token]
     @order.user = User.find(current_user.id)
     @order.product = Product.find(1)
-    @order.checkout
+    
+    @order2 = OrderProxy.new(session)
+    @order2.user = User.find(current_user.id)
+    @order2.product = Product.find(2)
+    
+    @sess = session
     render "orders/order"
   end
   # GET /orders/new

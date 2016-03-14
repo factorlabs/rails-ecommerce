@@ -12,12 +12,7 @@ class OrderProxy
         @user = user
         @session[:order_token][:user] = @user.id
     end
-    def product
-        @product
-    end
-    def user
-        @user
-    end
+
     def checkout
         order = Order.new
         order.product = @product
