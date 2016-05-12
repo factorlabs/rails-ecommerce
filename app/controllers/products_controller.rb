@@ -53,11 +53,11 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.update(product_params)
         puts "----- byebug -----"
-        byebug
+        #byebug
         puts "---------------"
         ActiveSupport::Notifications.instrument "product.update", name: @product.name
         puts "---------------"
-        byebug
+        #byebug
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -85,6 +85,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :tag_list, :category_id)
+      params.require(:product).permit(:name, :description, :price, :discount, :tag_list, :category_id)
     end
 end

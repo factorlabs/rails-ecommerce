@@ -8,6 +8,12 @@ class Product < ActiveRecord::Base
     include Loggable
     include Indexable
     
+    validates :discount, :numericality => {:less_than_or_equal_to => 20, unless: :is_product_not_expensive?}
+    
+    def is_product_not_expensive?
+      price <= 100
+    end
+    
     def tag_list
       self.tags.map {|t| t.name }.join(", ")
     end
