@@ -62,5 +62,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
+  get '/:id', to: 'product#show', constraints: { id: /\d+/ }
+  
   get '/orders/test' => 'orders#order', as: :order_test
 end
