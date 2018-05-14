@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -34,24 +33,21 @@ ActiveRecord::Schema.define(version: 20160512120009) do
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
     t.integer  "discount"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
-
-  add_index "products", ["category_id"], name: "index_products_on_category_id"
 
   create_table "products_tags", id: false, force: :cascade do |t|
     t.integer "tag_id"
     t.integer "product_id"
+    t.index ["product_id"], name: "index_products_tags_on_product_id"
+    t.index ["tag_id"], name: "index_products_tags_on_tag_id"
   end
-
-  add_index "products_tags", ["product_id"], name: "index_products_tags_on_product_id"
-  add_index "products_tags", ["tag_id"], name: "index_products_tags_on_tag_id"
 
   create_table "search_indices", force: :cascade do |t|
     t.string  "word"
     t.integer "product_id"
+    t.index ["product_id"], name: "index_search_indices_on_product_id"
   end
-
-  add_index "search_indices", ["product_id"], name: "index_search_indices_on_product_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -73,9 +69,8 @@ ActiveRecord::Schema.define(version: 20160512120009) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "role"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

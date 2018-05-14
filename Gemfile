@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '>= 5.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -56,6 +56,8 @@ gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 gem 'zip-zip' # will load compatibility for old rubyzip API.
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails', '>=0.4'
+
+gem 'nokogiri', '~> 1.6.8.rc2'
 
 group :test do
   gem 'shoulda-matchers'
